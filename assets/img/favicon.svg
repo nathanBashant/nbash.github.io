@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title>Nathan Bashant favicon</title>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#193252" />
+      <stop offset="1" stop-color="#12233d" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="124" fill="url(#bg)" />
+  <path
+    d="M152 360V152l208 208V152"
+    fill="none"
+    stroke="#fef9f0"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="58"
+  />
+  <circle cx="360" cy="152" r="30" fill="#ef6b45" />
+</svg>
