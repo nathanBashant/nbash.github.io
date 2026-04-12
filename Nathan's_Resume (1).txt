@@ -12,7 +12,7 @@ Cisco Systems | San Jose, CA
 * Drove software quality improvements with unit and targeted integration testing, reaching 85% coverage on critical modules and reducing escaped defects by 30%.
 
 
-Software Engineer I                         August 2024 - September 2025
+Software Engineer I                         August 2023 - September 2025
 Cisco Systems | San Francisco / Remote
 * Built Python-based backend tooling and automation services (REST endpoints + standardized execution) that improved repeatability and cut workflow execution time by 35–55% across teams.
 * Developed a web-based automation client integrated with Cisco NDFC controller APIs to validate inputs against live system state and provide fast feedback, increasing first-pass success to 92%.
@@ -20,7 +20,7 @@ Cisco Systems | San Francisco / Remote
 * Collaborated across teams to evaluate design tradeoffs, prioritize high-leverage backend improvements, and ship iterative releases that balanced speed with maintainability and operational safety.
 
 
-Software Developer Intern                                                                                                                    May 2023 - August 2024
+Software Developer Intern                                                                                                                    May 2023 - August 2023
 Cisco Systems | Research Triangle Park, NC                                                                                                                    
 * Created an automation tool using Python + REST APIs to automate delivery/migration tasks, reducing manual effort by 40–60% and improving migration speed by 20–35%.
 * Increased reliability via parameterized templates and repeatable playbooks, reducing rework from configuration drift by 20–30%.
