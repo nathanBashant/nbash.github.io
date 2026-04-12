@@ -1,0 +1,40 @@
+﻿Nathan Bashant
+(925) 876 - 3933 | San Francisco, CA | nathanbashant193@gmail.com 
+
+
+PROFESSIONAL EXPERIENCE 
+Software Engineer II                 September 2025 - Present
+Cisco Systems | San Jose, CA
+* Partnered with cross-functional engineering stakeholders to identify operational friction and ship backend tooling that simplified complex infrastructure workflows and improved day-to-day developer productivity.
+* Designed and maintained backend services and REST APIs (Python/Java/C++) for data validation, normalization, and workflow orchestration, creating a more consistent system view for downstream tools and reducing failure-prone manual steps.
+* Owned end-to-end delivery of internal applications (services + UI), making design tradeoffs around correctness, reliability, and usability to shorten time-to-debug and time-to-complete for critical workflows.
+* Profiled and optimized critical backend paths, reducing memory usage by 15–25% on high-traffic endpoints and improving overall service stability under load.
+* Drove software quality improvements with unit and targeted integration testing, reaching 85% coverage on critical modules and reducing escaped defects by 30%.
+
+
+Software Engineer I                         August 2024 - September 2025
+Cisco Systems | San Francisco / Remote
+* Built Python-based backend tooling and automation services (REST endpoints + standardized execution) that improved repeatability and cut workflow execution time by 35–55% across teams.
+* Developed a web-based automation client integrated with Cisco NDFC controller APIs to validate inputs against live system state and provide fast feedback, increasing first-pass success to 92%.
+* Implemented workflow engine reliability features including structured logs, run summaries, pre-checks, dry-run validation, and consistent error reporting—preventing 1–3 high-risk misconfigurations/month.
+* Collaborated across teams to evaluate design tradeoffs, prioritize high-leverage backend improvements, and ship iterative releases that balanced speed with maintainability and operational safety.
+
+
+Software Developer Intern                                                                                                                    May 2023 - August 2024
+Cisco Systems | Research Triangle Park, NC                                                                                                                    
+* Created an automation tool using Python + REST APIs to automate delivery/migration tasks, reducing manual effort by 40–60% and improving migration speed by 20–35%.
+* Increased reliability via parameterized templates and repeatable playbooks, reducing rework from configuration drift by 20–30%.
+
+
+Full Stack Software Engineer Intern                         May 2022 - August 2022
+S&C Electric Company | Alameda, CA
+* Built Python/PowerShell automation to improve lab/device availability to 92% uptime (from 86–87%), increasing test throughput and reducing developer interruptions.
+
+
+EDUCATION
+* Gonzaga University — B.S. Computer Science, Minor: MIS • GPA: 4.0 • May 2024
+* Cisco Certified DevNet Associate — Jul 2023 (Link)
+
+
+SKILLS
+Python • Java • C++ • REST APIs • JavaScript • TypeScript • SCSS • HTML •  SQL • Linux/Unix • CI/CD • XML • React • Distributed Systems • Error Handling • Performance Profiling  • gRPC • Kubernetes • Cloud Networking/APIs
