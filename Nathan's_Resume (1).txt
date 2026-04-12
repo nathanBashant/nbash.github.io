@@ -5,9 +5,9 @@
 PROFESSIONAL EXPERIENCE 
 Software Engineer II                 September 2025 - Present
 Cisco Systems | San Jose, CA
-* Partnered with cross-functional engineering stakeholders to identify operational friction and ship backend tooling that simplified complex infrastructure workflows and improved day-to-day developer productivity.
-* Designed and maintained backend services and REST APIs (Python/Java/C++) for data validation, normalization, and workflow orchestration, creating a more consistent system view for downstream tools and reducing failure-prone manual steps.
-* Owned end-to-end delivery of internal applications (services + UI), making design tradeoffs around correctness, reliability, and usability to shorten time-to-debug and time-to-complete for critical workflows.
+* Partnered with engineers and internal users on Cisco's vManage team to identify pain points in network management workflows and ship backend tooling that improved day-to-day developer productivity.
+* Designed and maintained backend services and REST APIs (Python/Java/C++) supporting network management workflows, improving data consistency across internal tools and reducing failure-prone manual steps.
+* Owned end-to-end delivery of internal applications (services + UI) that made complex vManage workflows easier to complete, troubleshoot, and operate reliably.
 * Profiled and optimized critical backend paths, reducing memory usage by 15–25% on high-traffic endpoints and improving overall service stability under load.
 * Drove software quality improvements with unit and targeted integration testing, reaching 85% coverage on critical modules and reducing escaped defects by 30%.
 
