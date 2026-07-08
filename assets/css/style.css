@@ -209,7 +209,7 @@ body.nav-open .nav-toggle::after {
   min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(5, 8, 22, 0.6), rgba(5, 8, 22, 0.9)),
-    url("../img/hero-reference-bg.png") center / cover no-repeat;
+    url("../img/hero-reference-bg.webp") center / cover no-repeat;
   overflow: hidden;
 }
 

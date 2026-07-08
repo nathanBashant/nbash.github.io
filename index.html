@@ -37,8 +37,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@400;500;700;800;900&display=swap"
+    as="style"
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@400;500;700;800;900&display=swap"
     rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  >
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+  </noscript>
+
+  <link
+    rel="preload"
+    href="assets/img/hero-reference-bg.webp"
+    as="image"
+    type="image/webp"
+    fetchpriority="high"
   >
 
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -50,59 +71,78 @@
   <link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#1e1e1e">
   <link rel="manifest" href="site.webmanifest">
 
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "/assets/vendor/three/three.module.js"
-      }
-    }
-  </script>
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Nathan Bashant",
-      "url": "https://nathandevelopsapps.com/",
-      "email": "mailto:nathanbashant193@gmail.com",
-      "jobTitle": "Software Engineer II",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Cisco Systems"
-      },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Gonzaga University"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "San Francisco",
-        "addressRegion": "CA",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/nathan-b-78090720b"
-      ],
-      "knowsAbout": [
-        "Python",
-        "Java",
-        "C++",
-        "REST APIs",
-        "Developer Tooling",
-        "Workflow Orchestration",
-        "Internal Platforms",
-        "React",
-        "TypeScript",
-        "Performance Profiling",
-        "Cloud Networking APIs",
-        "Machine Learning",
-        "LLM Engineering",
-        "Fine-Tuning",
-        "Model Evaluation",
-        "scikit-learn"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://nathandevelopsapps.com/#website",
+          "url": "https://nathandevelopsapps.com/",
+          "name": "Nathan Bashant",
+          "alternateName": "nathandevelopsapps.com",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://nathandevelopsapps.com/#person"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://nathandevelopsapps.com/#profile-page",
+          "url": "https://nathandevelopsapps.com/",
+          "name": "Nathan Bashant | Software Engineer II",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://nathandevelopsapps.com/#website"
+          },
+          "mainEntity": {
+            "@id": "https://nathandevelopsapps.com/#person"
+          },
+          "primaryImageOfPage": {
+            "@id": "https://nathandevelopsapps.com/#profile-image"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://nathandevelopsapps.com/#person",
+          "name": "Nathan Bashant",
+          "url": "https://nathandevelopsapps.com/",
+          "mainEntityOfPage": {
+            "@id": "https://nathandevelopsapps.com/#profile-page"
+          },
+          "description": "I'm a Software Engineer II at Cisco focused on backend services, internal platforms, and reliability-focused tooling for complex engineering workflows.",
+          "image": {
+            "@id": "https://nathandevelopsapps.com/#profile-image"
+          },
+          "jobTitle": "Software Engineer II",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Cisco Systems"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Gonzaga University"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "San Francisco",
+            "addressRegion": "CA"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/nathan-b-78090720b"
+          ]
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://nathandevelopsapps.com/#profile-image",
+          "url": "https://nathandevelopsapps.com/assets/img/profile-headshot.webp",
+          "contentUrl": "https://nathandevelopsapps.com/assets/img/profile-headshot.webp",
+          "caption": "Portrait of Nathan Bashant",
+          "width": 768,
+          "height": 768
+        }
       ]
     }
   </script>
@@ -181,10 +221,12 @@
           <div class="overview-media reveal">
             <div class="profile-orb">
               <img
-                src="assets/img/profile-headshot.png"
+                src="assets/img/profile-headshot.webp"
                 alt="Portrait of Nathan Bashant"
-                width="1024"
-                height="1024"
+                width="768"
+                height="768"
+                loading="lazy"
+                decoding="async"
               >
             </div>
 
@@ -435,7 +477,19 @@
     </div>
   </footer>
 
-  <script type="module" src="assets/js/hero-scene.mjs"></script>
+  <script type="module">
+    const loadHeroScene = function () {
+      import("./assets/js/hero-scene.bundle.mjs");
+    };
+
+    window.setTimeout(function () {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadHeroScene, { timeout: 1200 });
+      } else {
+        loadHeroScene();
+      }
+    }, 1200);
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

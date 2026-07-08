@@ -3,11 +3,13 @@ import { GLTFLoader } from "../vendor/three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "../vendor/three/examples/jsm/controls/OrbitControls.js";
 
 const mount = document.getElementById("hero-model");
-const modelUrl = new URL("../models/desktop_pc/scene.gltf", import.meta.url).href;
+const modelUrl = new URL("../models/desktop_pc/scene-optimized.glb", import.meta.url).href;
 
 if (mount) {
+  const hero = mount.closest(".hero") || mount;
   const scene = new THREE.Scene();
   const isMobile = window.matchMedia("(max-width: 500px)").matches;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const camera = new THREE.PerspectiveCamera(
     isMobile ? 50 : 25,
     mount.clientWidth / Math.max(mount.clientHeight, 1),
@@ -24,7 +26,7 @@ if (mount) {
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
-    preserveDrawingBuffer: true
+    powerPreference: "high-performance"
   });
 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -54,7 +56,7 @@ if (mount) {
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false;
     controls.enablePan = false;
-    controls.autoRotate = true;
+    controls.autoRotate = !reducedMotion.matches;
     controls.autoRotateSpeed = 2.2;
     controls.maxPolarAngle = Math.PI / 2;
     controls.minPolarAngle = Math.PI / 2;
@@ -62,6 +64,55 @@ if (mount) {
   }
 
   let desktopModel = null;
+  let animationFrameId = 0;
+  let heroIsVisible = true;
+  const clock = new THREE.Clock(false);
+
+  const canRender = function () {
+    return heroIsVisible && !document.hidden && desktopModel !== null;
+  };
+
+  const stopRendering = function () {
+    if (animationFrameId) {
+      window.cancelAnimationFrame(animationFrameId);
+      animationFrameId = 0;
+    }
+    clock.stop();
+  };
+
+  const renderFrame = function () {
+    animationFrameId = 0;
+    if (!canRender()) {
+      stopRendering();
+      return;
+    }
+
+    const delta = clock.getDelta();
+    if (!reducedMotion.matches) {
+      if (controls) {
+        controls.update();
+      } else {
+        desktopModel.rotation.y += delta * 0.5;
+      }
+    }
+
+    renderer.render(scene, camera);
+
+    if (reducedMotion.matches) {
+      clock.stop();
+      return;
+    }
+    animationFrameId = window.requestAnimationFrame(renderFrame);
+  };
+
+  const startRendering = function () {
+    if (animationFrameId || !canRender()) {
+      return;
+    }
+    clock.start();
+    animationFrameId = window.requestAnimationFrame(renderFrame);
+  };
+
   const loader = new GLTFLoader();
   loader.load(
     modelUrl,
@@ -75,6 +126,7 @@ if (mount) {
         desktopModel.rotation.set(-0.01, -0.2, -0.1);
       }
       scene.add(desktopModel);
+      startRendering();
     }
   );
 
@@ -84,21 +136,55 @@ if (mount) {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+    startRendering();
   };
 
-  window.addEventListener("resize", onResize);
+  window.addEventListener("resize", onResize, { passive: true });
 
-  const clock = new THREE.Clock();
-  const animate = function () {
-    const delta = clock.getDelta();
+  if (controls) {
+    controls.addEventListener("change", function () {
+      if (reducedMotion.matches) {
+        startRendering();
+      }
+    });
+  }
+
+  const handleMotionPreference = function () {
     if (controls) {
-      controls.update();
-    } else if (desktopModel) {
-      desktopModel.rotation.y += delta * 0.5;
+      controls.autoRotate = !reducedMotion.matches;
     }
-    renderer.render(scene, camera);
-    window.requestAnimationFrame(animate);
+    stopRendering();
+    startRendering();
   };
 
-  animate();
+  if (typeof reducedMotion.addEventListener === "function") {
+    reducedMotion.addEventListener("change", handleMotionPreference);
+  } else {
+    reducedMotion.addListener(handleMotionPreference);
+  }
+
+  if ("IntersectionObserver" in window) {
+    const visibilityObserver = new IntersectionObserver(
+      function (entries) {
+        heroIsVisible = entries.some(function (entry) {
+          return entry.isIntersecting;
+        });
+        if (heroIsVisible) {
+          startRendering();
+        } else {
+          stopRendering();
+        }
+      },
+      { threshold: 0.01 }
+    );
+    visibilityObserver.observe(hero);
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      stopRendering();
+    } else {
+      startRendering();
+    }
+  });
 }
